@@ -38,6 +38,42 @@ const userCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
+
+    login: async (req, res) =>{
+        try{
+            const {email, password} = req.body;
+
+            const user = await Users.findOne({email})
+            if (!user) return res.status(400).json({msg: "Incorrect email or password."})
+
+            const isMatch = await bcrypt.compare(password, user.password)
+            if(!isMatch) return res.status(400).json({msg: "Incorrect email or password."})
+
+            //Login Success -> CreateToken + RefreshToken
+            const accesstoken = createAccessToken({id: user.id})
+            const refreshtoken = createRefreshToken({id: user.id})
+
+            res.cookie('refreshtoken', refreshtoken, {
+                httpOnly: true, //Use httpOnly to mitigate the risk of client side script accessing the protected cookie
+                path: '/user/refresh_token'
+            })
+
+            res.json({accesstoken})
+
+        }catch(err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    logout: async (req, res) =>{
+        try{
+            res.clearCookie('refreshtoken',{path: '/user/refresh_token'})
+            return res.json({msg: "Logged out"})
+        }catch (err) {
+            return res.status(500).json({meg: err.message})
+        }
+    },
+
+
     refreshToken: (req, res) =>{
         try{
             const rf_token = req.cookies.refreshtoken;
