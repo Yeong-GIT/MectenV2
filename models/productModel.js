@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 const productSchema = new mongoose.Schema({
     product_id:{
         type: String,
@@ -7,16 +8,7 @@ const productSchema = new mongoose.Schema({
         trim: true,
         required: true
     },
-    category:{
-        type: String,
-        required: true
-    },
     title:{
-        type: String,
-        trim: true,
-        required: true
-    },
-    condition:{
         type: String,
         trim: true,
         required: true
@@ -38,14 +30,21 @@ const productSchema = new mongoose.Schema({
         type: Object,
         required: true
     },
+    category:{
+        type: String,
+        required: true
+    },
     checked:{
         type: Boolean,
         default: false
     },
     sold:{
         type: Number,
-        default:0
+        default: 0
     }
+}, {
+    timestamps: true
 })
+
 
 module.exports = mongoose.model("Products", productSchema)

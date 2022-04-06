@@ -3,12 +3,12 @@ const productCtrl= require ('../controllers/productCtrl')
 
 router.route('/products')
     .get(productCtrl.getProducts)
-    .post(productCtrl.createProducts)
+    .post(productCtrl.createProduct)
 
 
 router.route('/product/:id')
-    .delete(productCtrl.deleteProducts)
-    .put(productCtrl.updateProducts)
+    // .delete(productCtrl.deleteProduct)
+    // .put(productCtrl.updateProduct)
 
 
 

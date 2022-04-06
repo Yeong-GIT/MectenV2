@@ -9,33 +9,34 @@ const productCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
-    createProducts: async(req, res) =>{
+    createProduct: async(req, res) =>{
         try{
-            const {product_id, category, title, condition, price, description, content, images, checked, sold} = req.body;
-            if(!images) return res.status(400).json({msg: 'No image uploaded'})
+            const {product_id, title, price, description, content, images, category} = req.body;
+            if(!images) return res.status(400).json({msg: "No image uploaded"})
 
             const product = await Products.findOne({product_id})
-            if(product)
-                return res.status(400).json({msg: "This product has already exists."})
+            if (product)
+            return res.status(400).json({msg:"This product has already exist"})
 
             const newProduct = new Products({
-                product_id, category, title:title.toLowerCase(), condition, price, description, content, images, checked, sold
+                product_id, title: title.toLowerCase(), price, description, content, images, category
             })
 
             await newProduct.save()
-            res.json({msg :"Created a product"})
+            res.json({msg: "Created a new product"})
+
         }catch(err){
             return res.status(500).json({msg: err.message})
         }
     },
-    deleteProducts: async(req, res) =>{
+    deleteProduct: async(req, res) =>{
         try{
             res.json('test')
         }catch(err){
             return res.status(500).json({msg: err.message})
         }
     },
-    updateProducts: async(req, res) =>{
+    updateProduct: async(req, res) =>{
         try{
             res.json('test')
         }catch(err){
