@@ -23,11 +23,8 @@ class APIfeature{
         //.lte() => It returns documents that are less than or equal to the specified condition.
         //.lt() => It returns documents that are less than the specified condition.
         //.regex() => Filter based on alphabet
-
-         
         console.log({queryStr})
         this.query.find(JSON.parse(queryStr))
-
         return this;
 
     }
