@@ -41,18 +41,28 @@ class APIfeature{
     }
 
 
-    paginating(){}
+    paginating(){
+        const page = this.queryString.page * 1||1
+        const limit = this.queryString.limit *1||9
+        const skip = (page - 1) * limit;
+        this.query =this.query.skip(skip).limit(limit)
+        return this;
+    }
 }
 
 const productCtrl = {
     getProducts: async(req,res) => {
         try{
             const features = new APIfeature(Products.find(), req.query)
-            .filtering().sorting()
+            .filtering().sorting().paginating()
 
             const products = await features.query
 
-            res.json(products)
+            res.json({
+                status: 'success',
+                result: products.length,
+                products: products
+            })
         }catch(err){
             return res.status(500).json({msg: err.message})
         }
