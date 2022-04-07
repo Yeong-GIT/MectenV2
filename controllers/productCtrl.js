@@ -32,8 +32,16 @@ class APIfeature{
 
     }
 
-
-    sorting(){}
+    sorting(){
+        if(this.queryString.sort){
+            const sortBy = this.queryString.sort.split(',').join('')
+            console.log(sortBy)
+            this.query = this.query.sort(sortBy)
+        }else{
+            this.query = this.query.sort('-createdAt')
+        }
+        return this;
+    }
 
 
     paginating(){}
@@ -42,7 +50,8 @@ class APIfeature{
 const productCtrl = {
     getProducts: async(req,res) => {
         try{
-            const features = new APIfeature(Products.find(), req.query).filtering()
+            const features = new APIfeature(Products.find(), req.query)
+            .filtering().sorting()
 
             const products = await features.query
 
