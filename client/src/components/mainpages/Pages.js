@@ -4,7 +4,6 @@ import Products from './products/Products'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
-import Fav from './fav/Favourite'
 import NotFound from './auth/utils/NotFound/NotFound'
 import Favourite from './fav/Favourite'
 

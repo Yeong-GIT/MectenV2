@@ -1,10 +1,14 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext} from 'react'
+import ProductsAPI from './api/ProductsAPI'
 
 export const GlobalState = createContext()
 
 export const DataProvider = ({children}) => {
+
+    ProductsAPI()
+
     return(
-        <GlobalState.Provider value={"Value"}>
+        <GlobalState.Provider value={"Value in Global"}>
             {children}
         </GlobalState.Provider>
     )
