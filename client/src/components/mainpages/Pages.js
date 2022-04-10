@@ -4,7 +4,7 @@ import Products from './products/Products'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
-import NotFound from './auth/utils/NotFound/NotFound'
+import NotFound from './utils/not_found/NotFound'
 import Favourite from './fav/Favourite'
 
 function Pages() {
