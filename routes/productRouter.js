@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const authSeller = require('../middleware/authSeller')
 
 router.route('/products')
-    .get(productCtrl.getProducts)
+    .get(auth, authSeller, productCtrl.getProducts)
     .post(auth, authSeller, productCtrl.createProduct)
 
 
