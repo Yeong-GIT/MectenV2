@@ -22,7 +22,7 @@ function ProductItem({product}) {
                 Buy
           </Link>
           
-          <Link id = "btn_view" to={'detail/${product._id}'}>
+          <Link id = "btn_view" to={`detail/${product._id}`}>
                 View
           </Link>
 
