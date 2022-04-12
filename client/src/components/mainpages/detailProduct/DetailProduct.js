@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
+import ProductItem from '../utils/productItem/ProductItem'
 
 function DetailProduct() {
     const params = useParams()
@@ -10,6 +11,7 @@ function DetailProduct() {
     
 
     useEffect(() =>{
+        console.log('re render')
         if(params.id){
 
             products.forEach(product => {
@@ -22,7 +24,8 @@ function DetailProduct() {
     if(detailProduct.length === 0) return null;
 
   return (
-    <div className="detail">
+      <>
+        <div className="detail">
                 <img src={detailProduct.images.url} alt="" />
                 <div className="box-detail">
                     <div className="row">
@@ -32,14 +35,28 @@ function DetailProduct() {
                     <span>$ {detailProduct.price}</span>
                     <p>{detailProduct.description}</p>
                     <p>{detailProduct.content}</p>
-                    <Link to="/cart" className="cart">
-                        Buy
-                    </Link>
-                    <Link to="/fav" className="fav">
-                        Fav
-                    </Link>
+                        <Link to="/cart" className="cart">
+                            Buy
+                        </Link>
+                        <Link to="/fav" className="fav">
+                            Fav
+                        </Link>
+                        </div>
+            </div>
+
+            <div>
+                <h2 className="similarlisting">Similar Listing</h2>
+                <div className="products">
+                    {
+                        products.map(product => {
+                            return product.category === detailProduct.category 
+                                ? <ProductItem key={product._id} product={product} /> : null
+                        })
+                    }
                 </div>
             </div>
+        </>
+            
   )
 }
 
