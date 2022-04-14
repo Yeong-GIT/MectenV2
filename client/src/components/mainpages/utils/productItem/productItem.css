@@ -1,7 +1,7 @@
 .product_card{
     max-width: 300px;
     overflow: hidden;
-    height: 520px;
+    height: 550px;
     padding: 15px;
     box-shadow: 0 0 15px #ddd;
     margin: 10px 0;
@@ -75,19 +75,13 @@
 }
 
 #btn_view{
-    background: #555;
+    background: teal;
     margin-left: 5px;
 }
 
-#btn_fav{
-    width: 50%;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
-    font-weight:600;
-    letter-spacing: 2px;
-    padding: 6px;
-    padding-left: 10px;
-    background: #555;
-    margin-left: 5px;
+
+.product_card input{
+    position: absolute;
+    width: 25px;
+    height: 25px;
 }

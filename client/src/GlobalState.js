@@ -1,5 +1,6 @@
 import React, {useState, createContext, useEffect} from 'react'
 import ProductsAPI from './api/ProductsAPI'
+import UserAPI from './api/UserAPI'
 import axios from 'axios'
 
 export const GlobalState = createContext()
@@ -18,10 +19,11 @@ export const DataProvider = ({children}) =>{
         if(firstLogin) refreshToken()
     },[])
 
-    ProductsAPI()
+    
     const state = {
         token: [token, setToken],
-        productsAPI: ProductsAPI()
+        productsAPI: ProductsAPI(),
+        userAPI: UserAPI(token)
     }
 
     return(

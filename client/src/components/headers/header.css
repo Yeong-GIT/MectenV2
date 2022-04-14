@@ -8,21 +8,14 @@ header{
     align-items: center;
     border-bottom: 1px solid #ddd;
 }
-
 header .logo{
     flex: 1;
 }
-
-header .logo h1{
-    margin-top: 0%;
-    margin-bottom: 0%;
-}
-
 header a{
     text-transform: uppercase;
-    color: #555
+    color: #555;
 }
-header ul li {
+header ul li{
     display: inline-block;
     opacity: 0.7;
     padding: 0 20px;
@@ -31,34 +24,19 @@ header ul li:hover{
     opacity: 1;
 }
 .menu{
-    display:none;
+    display: none;
 }
 .cart-icon{
     position: relative;
     margin-right: 20px;
 }
 .cart-icon span{
-    background: green;
-    border-radius: 20px;
-    color: white;
-    position: absolute;
-    top:5px;
-    right:-10px;
-    padding: 5px 7px;
-    font-size: 10px;
-}
-.fav-icon{
-    position: relative;
-    margin-right: 20px;
-}
-.fav-icon span{
     background: crimson;
     border-radius: 20px;
     color: white;
     position: absolute;
-    top:5px;
-    right:-10px;
+    top:-10px;
+    right: -10px;
     padding: 5px 7px;
     font-size: 10px;
 }
-

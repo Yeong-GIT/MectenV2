@@ -1,16 +1,17 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import Fav from "../productItem/favicon/favourite.svg"
 import BtnRender from './BtnRender'
 
-function ProductItem({product}) {
+function ProductItem({product, isSeller}) {
   return (
     <div className="product_card">
+      {
+        isSeller && <input type = "checkbox" checked={product.checked}/>
+      }
       <img src ={product.images.url} alt ="" />
         
         <div className ="product_box">
             <h2 title={product.title}>{product.title}</h2>
-            <span>${product.price}<img src ={Fav} alt ="" width="1"/></span>
+            <span>${product.price}</span>
             <p>${product.description}</p>
         </div>
 
