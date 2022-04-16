@@ -11,6 +11,7 @@ function Header() {
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged
   const [isSeller] = state.userAPI.isSeller
+  const [cart] = state.userAPI.cart
   const [menu, setMenu] = useState(false)
 
   const logoutUser = async () =>{
@@ -76,7 +77,7 @@ function Header() {
             {
                 isSeller ? '' 
                 :<div className="cart-icon">
-                    <span>0</span>
+                    <span>{cart.length}</span>
                     <Link to="/cart">
                         <img src={Cart} alt="" width="30" />
                     </Link>

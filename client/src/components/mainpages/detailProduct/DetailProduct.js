@@ -38,9 +38,7 @@ function DetailProduct() {
                         <Link to="/cart" className="cart">
                             Buy
                         </Link>
-                        <Link to="/fav" className="fav">
-                            Fav
-                        </Link>
+                       
                         </div>
             </div>
 
