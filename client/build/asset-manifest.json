@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.14346b17.css",
+    "main.js": "/static/js/main.b5c81fbf.js",
+    "static/media/mectenlogo.png": "/static/media/mectenlogo.0c05dea6e3e0ab4a99e4.png",
+    "static/media/cart.svg": "/static/media/cart.dc6f5a1bd7c5f69996319738458802b4.svg",
+    "index.html": "/index.html",
+    "static/media/close.svg": "/static/media/close.6837248f26b4746bca22dce7c606b744.svg",
+    "static/media/menu.svg": "/static/media/menu.4de0b64b468d9cdbdd41f4d490765099.svg",
+    "main.14346b17.css.map": "/static/css/main.14346b17.css.map",
+    "main.b5c81fbf.js.map": "/static/js/main.b5c81fbf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14346b17.css",
+    "static/js/main.b5c81fbf.js"
+  ]
+}
