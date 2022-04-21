@@ -42,6 +42,7 @@ function Cart() {
 
         setCart([...cart])
         addToCart(cart)
+        alert("You have deleted a cart item.")
     }
 }
 

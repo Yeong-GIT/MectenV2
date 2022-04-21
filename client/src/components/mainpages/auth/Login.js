@@ -40,12 +40,9 @@ function Login() {
                 <input type="password" name="password" required autoComplete="on"
                 placeholder="Password" value={user.password} onChange={onChangeInput} />
 
-                <div className="row">
-                    <button type="submit">Login</button>
-                    <div className="registerbutton">
-                    
-                    </div>
-                </div>
+                
+                <button type="submit">Login</button>
+                
             </form>
         </div>
     )

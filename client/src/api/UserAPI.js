@@ -34,14 +34,21 @@ function UserAPI(token){
     useEffect(() =>{
         if(token){
             const getHistory = async() =>{
-                const res = await axios.get('/user/history', {
-                    headers: {Authorization: token}
-                })
-                setHistory(res.data)
+                if(isSeller){
+                    const res = await axios.get('/api/payment', {
+                        headers: {Authorization: token}
+                    })
+                    setHistory(res.data)
+                }else{
+                    const res = await axios.get('/user/history', {
+                        headers: {Authorization: token}
+                    })
+                    setHistory(res.data)
+                }
             }
             getHistory()
         }
-    },[token, callback])
+    },[token, callback, isSeller])
 
     const addCart = async (product) => {
         if(!isLogged) return alert("Please login to continue buying")
@@ -56,6 +63,7 @@ function UserAPI(token){
             await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
                 headers: {Authorization: token}
             })
+            alert("Product has successfully added into cart")
 
         }else{
             alert("This product has been added to cart.")
