@@ -50,14 +50,14 @@ function CreateProduct() {
             return alert ("Size too large.")
 
             if(file.type !== 'image/jpeg' && file.type !== 'image/png' )
-            return alert ("SFile format is incorrect.")
+            return alert ("File format is incorrect.")
 
             let formData = new FormData()
             formData.append('file', file)
 
             setLoading(true)
             const res = await axios.post('/api/upload', formData,{
-                headers: {'cotent-type': 'multipart/form-data', Authorization: token}
+                headers: {'content-type': 'multipart/form-data', Authorization: token}
             })
             setLoading(false)
             setImages(res.data)
@@ -82,7 +82,7 @@ function CreateProduct() {
             {
                 loading ? <div id="file_img"><Loading/></div>
                 :<div id="file_img" style={styleUpload}>
-                <img src={images ? images.url: ''} alt="" />
+                <img src={images ? images.url : ''} alt="" />
                 <span onClick={handleDestroy}>X</span>
             </div>
             }
