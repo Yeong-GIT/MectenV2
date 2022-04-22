@@ -2,6 +2,7 @@ import {useState, useContext} from 'react'
 import axios from 'axios'
 import {GlobalState}from '../../../GlobalState'
 import Loading from '../utils/loading/Loading'
+import {useNavigate} from 'react-router-dom'
 
 const initialState = {
     product_id: '',
@@ -24,6 +25,7 @@ function CreateProduct() {
 
     const [isSeller] = state.userAPI.isSeller
     const [token] = state.token
+    const navigate = useNavigate();
 
     const handleDestroy = async () =>{
         try{
@@ -70,7 +72,25 @@ function CreateProduct() {
         const {name, value} = e.target
         setProduct({...product, [name]:value})
     }
+    const handleSubmit = async e =>{
+        e.preventDefault()
+        try{
+            if(!isSeller) return alert ("Please register as a seller")
+            if(!images) return alert ("No images uploaded")
 
+            await axios.post('/api/products', {...product, images},{
+                headers: {Authorization: token}
+            })
+
+            setImages(false)
+            setProduct(initialState)
+            alert("Product has successfully created")
+            navigate('/')
+
+        }catch(err){
+            alert(err.response.data.msg)
+        }
+    }
     const styleUpload = {
         display: images ? "block" : "none"
     }
@@ -89,7 +109,7 @@ function CreateProduct() {
             
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="row">
                 <label htmlFor="product_id">Product ID</label>
                 <input type="text" name="product_id" id="product_id" required
