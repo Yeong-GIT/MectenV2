@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {GlobalState} from '../../../../GlobalState'
 
 
-function BtnRender({product}) {
+function BtnRender({product, deleteProduct}) {
   const state = useContext(GlobalState)
   const [isSeller] = state.userAPI.isSeller
   const addCart = state.userAPI.addCart
@@ -13,7 +13,7 @@ function BtnRender({product}) {
           {
             isSeller ? 
             <>
-              <Link id = "btn_buy" to="#!">
+              <Link id = "btn_buy" to="#!" onClick={deleteProduct}>
                     Delete
               </Link>
         
