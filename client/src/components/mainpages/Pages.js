@@ -30,6 +30,7 @@ function Pages() {
 
         <Route exact path="/category" element={isSeller ? <Categories/> : <NotFound/>}/>
         <Route exact path="/create_product" element={isSeller ? <CreateProduct/> : <NotFound/>}/>
+        <Route path="/edit_product/:id" element ={isSeller ? <CreateProduct/> : <NotFound/>} />
 
         <Route exact path="/history" element={isLogged ?  <OrderHistory/> : <NotFound/>}/>
         <Route exact path="/history/:id" element={isLogged ?  <OrderDetails/> : <NotFound/>}/>

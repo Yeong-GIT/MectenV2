@@ -14,6 +14,8 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 
+
+
 //Routes
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/categoryRouter'))
