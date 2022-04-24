@@ -53,7 +53,7 @@ function Header() {
 
             <div className="logo">
                 <h1>
-                    <Link to="/">{isSeller ? 'Seller' : <img src ={Logo} alt ="" width="250"/>}</Link>
+                    <Link to="/">{isSeller ? 'Admin' : <img src ={Logo} alt ="" width="250"/>}</Link>
                 </h1>
             </div>
 
@@ -63,7 +63,7 @@ function Header() {
                 {isSeller && sellerRouter()}
 
                 {
-                    isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+                    isLogged ? loggedRouter() : <li><Link to="/login">Login / Register</Link></li>
                 }
 
                 <li onClick={() => setMenu(!menu)}>
