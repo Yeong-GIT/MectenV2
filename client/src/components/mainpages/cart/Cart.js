@@ -84,7 +84,7 @@ const tranSuccess = async(payment) => {
       }
 
 <div className="total">
-                <h3>Total: $ {total}</h3>
+                <h3>Total: RM {total}</h3>
                 <PaypalButton
                 total={total}
                 tranSuccess={tranSuccess} />

@@ -64,6 +64,9 @@ button{
 /*---------------CreateProduct-----------------*/
 @import url("./components/mainpages/createProduct/createProduct.css");
 
+/*---------------AboutUs----------------*/
+@import url("./components/mainpages/about/aboutUs.css");
+
 /*---------------Responsive-----------------*/
 @media (max-width: 820px){
   header .logo{

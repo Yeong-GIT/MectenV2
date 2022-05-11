@@ -58,7 +58,9 @@ function Header() {
             </div>
 
             <ul style={styleMenu}>
+                            <li><Link to="/about">About / Contact Us</Link></li>
                             <li><Link to="/">{isSeller ? 'Products' : 'Shop'}</Link></li>
+                            
 
                 {isSeller && sellerRouter()}
 
