@@ -31,21 +31,21 @@ function DetailProduct() {
                 <div className="box-detail">
                     <div className="row">
                         <h2>{detailProduct.title}</h2>
-                        <h6>{detailProduct.product_id}</h6>
+                       
                     </div>
                     <span>RM {detailProduct.price}</span>
                     <p>{detailProduct.description}</p>
                     <p>{detailProduct.content}</p>
                         <Link to="/cart" className="cart" 
                         onClick={() => addCart(detailProduct)}>
-                            Buy
+                            Add To Cart
                         </Link>
                        
                         </div>
             </div>
 
             <div>
-                <h2 className="similarlisting">Similar Listing</h2>
+                <h2 className="similarlisting">Other Textbook</h2>
                 <div className="products">
                     {
                         products.map(product => {

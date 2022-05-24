@@ -8,6 +8,7 @@ import OrderHistory from './history/OrderHistory'
 import OrderDetails from './history/OrderDetails'
 import Cart from './cart/Cart'
 import AboutUs from './about/AboutUs'
+import Dashboard from './dashboard/Dashboard'
 import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
@@ -36,6 +37,9 @@ function Pages() {
 
         <Route exact path="/history" element={isLogged ?  <OrderHistory/> : <NotFound/>}/>
         <Route exact path="/history/:id" element={isLogged ?  <OrderDetails/> : <NotFound/>}/>
+
+        <Route exact path="/dashboard" element={isLogged ?  <Dashboard/> : <NotFound/>}/>
+        <Route exact path="/dashboard/:id" element={isLogged ?  <Dashboard/> : <NotFound/>}/>
 
         <Route exact path="/cart" element={<Cart/>}/>
         

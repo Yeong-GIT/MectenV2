@@ -2,6 +2,8 @@ const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const Payments = require('../models/paymentModel')
+const Category = require('../models/categoryModel')
+const Products = require('../models/productModel')
 
 
 const userCtrl = {
@@ -115,6 +117,15 @@ const userCtrl = {
         }
     },
     history: async(req, res) =>{
+        try {
+            const history = await Payments.find({user_id: req.user.id})
+
+            res.json(history)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    dashboard: async(req, res) =>{
         try {
             const history = await Payments.find({user_id: req.user.id})
 

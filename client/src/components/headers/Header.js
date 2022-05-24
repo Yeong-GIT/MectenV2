@@ -23,8 +23,9 @@ function Header() {
   const sellerRouter = () =>{
     return(
       <>
-          <li><Link to="/create_product">Create Product</Link></li>
-          <li><Link to="/category">Categories</Link></li>
+          <li><Link to="/create_product">Create Listing</Link></li>
+          <li><Link to="/category">Create Categories</Link></li>
+          {/* <li><Link to="/dashboard">Dashboard</Link></li> */}
 
       </>
   )
@@ -34,7 +35,7 @@ function Header() {
   const loggedRouter = () =>{
     return(
       <>
-          <li><Link to="/history">History</Link></li>
+          <li><Link to="/history">Check Payment History</Link></li>
           <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
       </>
   )
@@ -59,7 +60,7 @@ function Header() {
 
             <ul style={styleMenu}>
                             <li><Link to="/about">About / Contact Us</Link></li>
-                            <li><Link to="/">{isSeller ? 'Products' : 'Shop'}</Link></li>
+                            <li><Link to="/">{isSeller ? 'Listings' : 'Textbooks'}</Link></li>
                             
 
                 {isSeller && sellerRouter()}

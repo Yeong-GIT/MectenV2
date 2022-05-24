@@ -18,7 +18,7 @@
   }
 
   .column1 p{
-    padding-left:220px;
+    padding-left:200px;
     width:40%;
     flex: 50%;
     text-align: justify;
@@ -39,7 +39,7 @@
   .row2 {
     display: flex;
     padding-top: 30px;
-    padding-left:585px;
+    padding-left:529px;
   }
 
   .column2 {
